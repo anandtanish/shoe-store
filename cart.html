@@ -1,41 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Add to Cart</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NXM77R7Q');
-  </script>
-  <!-- End Google Tag Manager -->
+    })(window,document,'script','dataLayer','GTM-NXM77R7Q');</script>
+    <!-- End Google Tag Manager -->
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Haven - Billing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray background */
+            color: #2d3748; /* Dark text */
+        }
+        .btn-primary {
+            @apply bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md;
+        }
+        .navbar {
+            @apply bg-white shadow-md p-4;
+        }
+        .navbar a {
+            @apply text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md transition duration-200;
+        }
+        .form-input {
+            @apply mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+        }
+    </style>
+
 </head>
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXM77R7Q"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<body class="min-h-screen flex flex-col">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXM77R7Q"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <header>
-    <h1>Your Cart</h1>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
-  </header>
+    <header class="navbar">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-indigo-700">Shoe Haven</a>
+            <div class="space-x-4">
+                <a href="index.html">Home</a>
+                <a href="add_to_cart.html">Billing Page</a>
+                <a href="thank_you.html">Thank You</a>
+            </div>
+        </nav>
+    </header>
 
-  <main>
-    <section class="cart">
-      <p>1x Running Shoe added to your cart.</p>
-      <a href="thank-you.html" class="button">Proceed to Checkout</a>
-    </section>
-  </main>
+    <main class="flex-grow container mx-auto p-6">
+        <section class="my-12">
+            <h1 class="text-4xl font-extrabold text-gray-900 text-center mb-8">Complete Your Purchase</h1>
+
+            <div class="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <form action="thank_you.html" method="GET">
+                    <div class="mb-6">
+                        <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" class="form-input" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" pattern="[0-9]{13,16}" maxlength="16" required>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label for="expiryDate" class="block text-sm font-medium text-gray-700 mb-1">Expiry Date (MM/YY)</label>
+                            <input type="text" id="expiryDate" name="expiryDate" class="form-input" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/?([0-9]{2})" maxlength="5" required>
+                        </div>
+                        <div>
+                            <label for="cvv" class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                            <input type="text" id="cvv" name="cvv" class="form-input" placeholder="XXX" inputmode="numeric" pattern="[0-9]{3,4}" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-2xl font-semibold text-gray-800 mb-4">
+                        <span>Total Amount:</span>
+                        <span>$280.00</span> <!-- Placeholder total, could be dynamic with JS -->
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button type="submit" class="btn-primary w-full">Pay Now</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-6 text-center mt-auto rounded-t-xl">
+        <p>&copy; 2025 Shoe Haven. All rights reserved.</p>
+    </footer>
 </body>
 </html>
